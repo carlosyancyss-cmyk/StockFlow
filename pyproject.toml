@@ -1,0 +1,38 @@
+[project]
+name = "stockflow"
+version = "1.0.0"
+description = "Sistema de Controle de Estoque StockFlow"
+
+dependencies = [
+    "flet==0.85.3",
+    "python-dotenv==1.2.2",
+    "supabase==2.15.3",
+    "openpyxl==3.1.5",
+    "reportlab==4.5.1",
+    "pandas==2.2.3",
+    "numpy==2.0.2",
+    "pillow==10.2.0"
+]
+
+[tool.flet]
+org = "com.stockflow"
+product = "StockFlow"
+company = "StockFlow"
+
+[tool.flet.app]
+path = "."
+
+[tool.flet.windows]
+icon = "assets/icons/stockflow.ico"
+
+[tool.flet.android]
+icon = "assets/icons/icon_1024.png"
+
+adaptive_icon_background = "#FFFFFF"
+adaptive_icon_foreground = "assets/icons/icon_1024.png"
+
+[tool.flet.ios]
+icon = "assets/icons/icon_1024.png"
+
+[tool.flet.web]
+favicon = "assets/icons/favicon.ico"
