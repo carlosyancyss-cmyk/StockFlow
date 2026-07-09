@@ -24,9 +24,12 @@ def url_download(arquivo):
     return f"{base}/download/{Path(arquivo).name}"
 
 
+import flet as ft
+
+
 def abrir_pdf(page, arquivo):
-    webbrowser.open(url_download(arquivo))
+    page.launch_url(url_download(arquivo))
 
 
 def abrir_excel(page, arquivo):
-    webbrowser.open(url_download(arquivo))
+    page.launch_url(url_download(arquivo))
