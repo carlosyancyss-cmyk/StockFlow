@@ -1,7 +1,8 @@
-from datetime import datetime
+import asyncio
 from pathlib import Path
+from datetime import datetime
 import tempfile
-import webbrowser
+import os
 
 
 def novo_pdf(nome):
@@ -14,20 +15,9 @@ def novo_excel(nome):
     return Path(tempfile.gettempdir()) / f"{nome}_{agora}.xlsx"
 
 
-import os
-
-
 def url_download(arquivo):
-
     base = os.getenv("APP_URL", "")
-
     return f"{base}/download/{Path(arquivo).name}"
-
-
-import flet as ft
-
-
-import asyncio
 
 
 def abrir_pdf(page, arquivo):
