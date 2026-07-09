@@ -1,8 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 import tempfile
-
-from utils.http_server import url_download
+import webbrowser
 
 
 def novo_pdf(nome):
@@ -15,14 +14,13 @@ def novo_excel(nome):
     return Path(tempfile.gettempdir()) / f"{nome}_{agora}.xlsx"
 
 
+def url_download(arquivo):
+    return f"/download/{Path(arquivo).name}"
+
+
 def abrir_pdf(page, arquivo):
-    import webbrowser
     webbrowser.open(url_download(arquivo))
 
 
 def abrir_excel(page, arquivo):
-    import webbrowser
     webbrowser.open(url_download(arquivo))
-
-def url_download(arquivo):
-    return f"/download/{Path(arquivo).name}"    
