@@ -13,8 +13,8 @@ def novo_excel(nome):
 def url_download(arquivo):
     return f"/download/{Path(arquivo).name}"
 
-def abrir_pdf(page, arquivo):
-    page.launch_url(url_download(arquivo))
+async def abrir_pdf(page, arquivo):
+    await page.launch_url(url_download(arquivo))
 
-def abrir_excel(page, arquivo):
-    page.launch_url(url_download(arquivo))
+async def abrir_excel(page, arquivo):
+    await page.launch_url(url_download(arquivo))

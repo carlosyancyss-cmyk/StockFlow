@@ -23,13 +23,17 @@ TEMP_DIR = Path(tempfile.gettempdir())
 
 
 @app.get("/download/{arquivo}")
-def download(arquivo: str):
+async def download(arquivo: str):
 
     caminho = TEMP_DIR / arquivo
 
+    if not caminho.exists():
+        return {"erro": "Arquivo não encontrado"}
+
     return FileResponse(
-        caminho,
-        filename=arquivo
+        path=caminho,
+        filename=arquivo,
+        media_type="application/octet-stream",
     )
 
 
