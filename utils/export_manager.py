@@ -23,3 +23,6 @@ def abrir_pdf(page, arquivo):
 def abrir_excel(page, arquivo):
     import webbrowser
     webbrowser.open(url_download(arquivo))
+
+def url_download(arquivo):
+    return f"/download/{Path(arquivo).name}"    

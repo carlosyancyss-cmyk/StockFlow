@@ -1,8 +1,7 @@
 import flet as ft
 import tempfile
 
-from utils.http_server import iniciar_servidor
-from server import app as download_app
+
 from pathlib import Path
 from database.usuarios_supabase import cadastrar_usuario
 from database.backup_supabase import fazer_backup_automatico
@@ -31,8 +30,6 @@ ARQUIVO_SESSAO = APP_DATA_DIR / "sessao_login.txt"
 
 
 def main(page: ft.Page):
-
-    iniciar_servidor()
 
     page.title = "Stock Flow"
     aplicar_tema_page(page)
@@ -760,7 +757,8 @@ def main(page: ft.Page):
     else:
         mostrar_login()
 
-ft.run(
+app = ft.run(
     main,
-    assets_dir="assets"
+    export_asgi_app=True,
+    assets_dir="assets",
 )
