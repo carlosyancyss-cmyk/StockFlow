@@ -2,7 +2,12 @@ import flet as ft
 from datetime import datetime
 from openpyxl import Workbook
 
-from utils.export_manager import novo_pdf, novo_excel, abrir_arquivo
+from utils.export_manager import (
+    novo_pdf,
+    novo_excel,
+    abrir_pdf,
+    abrir_excel
+)
 
 from database.estoque_supabase import (
     listar_estoque,
@@ -1073,8 +1078,9 @@ def estoque_view(page, usuario):
         aplicar_estilo_excel(ws)
 
         wb.save(arquivo)
-        abrir_arquivo(page, arquivo)
 
+        abrir_excel(page, arquivo)
+        
         e.page.show_dialog(
             ft.AlertDialog(
                 modal=True,
@@ -1472,6 +1478,8 @@ def estoque_view(page, usuario):
 
 
             doc.build(elementos)
+
+            abrir_pdf(page, arquivo)
 
             page.snack_bar = ft.SnackBar(
                 content=ft.Text(

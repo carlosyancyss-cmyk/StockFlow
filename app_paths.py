@@ -23,13 +23,6 @@ else:
 
     DOWNLOADS_DIR = Path.home() / "Downloads"
 
-print("=" * 50)
-print("APP_PATHS")
-print("PROJECT_DIR:", PROJECT_DIR)
-print("IS_ANDROID:", IS_ANDROID)
-print("APP_DATA_DIR:", APP_DATA_DIR)
-print("DOWNLOADS_DIR:", DOWNLOADS_DIR)
-print("=" * 50)
 
 APP_DATA_DIR.mkdir(parents=True, exist_ok=True)
 DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)

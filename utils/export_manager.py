@@ -1,26 +1,25 @@
 from datetime import datetime
 from pathlib import Path
 import tempfile
-import os
+
+from utils.http_server import url_download
 
 
 def novo_pdf(nome):
-
     agora = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    pasta_temp = Path(tempfile.gettempdir())
-
-    return pasta_temp / f"{nome}_{agora}.pdf"
+    return Path(tempfile.gettempdir()) / f"{nome}_{agora}.pdf"
 
 
 def novo_excel(nome):
-
     agora = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    pasta_temp = Path(tempfile.gettempdir())
-
-    return pasta_temp / f"{nome}_{agora}.xlsx"
+    return Path(tempfile.gettempdir()) / f"{nome}_{agora}.xlsx"
 
 
-def abrir_arquivo(page, arquivo):
-    pass
+def abrir_pdf(page, arquivo):
+    import webbrowser
+    webbrowser.open(url_download(arquivo))
+
+
+def abrir_excel(page, arquivo):
+    import webbrowser
+    webbrowser.open(url_download(arquivo))

@@ -107,6 +107,7 @@ def consultar_saidas_relatorio():
             codigo_anterior = item["codigo"]
 
     return resultado
+
 def consultar_movimentacao_produto_relatorio(produto):
 
     return rpc(

@@ -13,3 +13,6 @@ requests==2.34.2
 pandas==2.2.3
 numpy==2.0.2
 pillow==10.2.0
+
+fastapi
+uvicorn

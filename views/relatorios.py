@@ -1,9 +1,15 @@
 import flet as ft
+import webbrowser
 
 from datetime import datetime
 from pathlib import Path
 
-from utils.export_manager import novo_pdf, novo_excel, abrir_arquivo
+from utils.export_manager import (
+    novo_pdf,
+    novo_excel,
+    abrir_pdf,
+    abrir_excel
+)
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image as ExcelImage
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -904,7 +910,7 @@ def relatorios_view(page, usuario):
 
         wb.save(arquivo)
 
-        abrir_arquivo(page, arquivo)
+        abrir_pdf(page, arquivo)
 
         mensagem.value = f"Excel gerado: {arquivo}"
 
@@ -1056,9 +1062,17 @@ def relatorios_view(page, usuario):
 
         print("PDF GERADO")
 
-        abrir_arquivo(page, arquivo)
+        abrir_pdf(page, arquivo)
 
-        mensagem.value = f"PDF gerado: {arquivo}"
+        mensagem.value = "PDF gerado com sucesso."
+
+        page.snack_bar = ft.SnackBar(
+            content=ft.Text(
+                f"PDF salvo em:\n{arquivo}"
+            )
+        )
+
+        page.snack_bar.open = True
 
         e.page.update()
 

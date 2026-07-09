@@ -3,7 +3,10 @@ import flet as ft
 from datetime import datetime
 from pathlib import Path
 
-from utils.export_manager import novo_pdf, abrir_arquivo
+from utils.export_manager import (
+    novo_pdf,
+    abrir_pdf
+)
 from app_paths import LOGO_PATHS
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
@@ -755,7 +758,7 @@ def saidas_view(page, usuario):
 
         doc.build(elementos)
 
-        abrir_arquivo(page, arquivo_pdf)
+        abrir_pdf(page, arquivo_pdf)
 
         page.snack_bar = ft.SnackBar(
             content=ft.Text(f"PDF gerado: {arquivo_pdf}")

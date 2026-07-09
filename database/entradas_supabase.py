@@ -43,12 +43,6 @@ def salvar_item_entrada(
     valor_unitario
 ):
 
-    print("ENTRADA_ID:", entrada_id)
-    print("PRODUTO_ID:", produto_id)
-    print("QUANTIDADE:", quantidade)
-    print("LOTE:", lote)
-    print("VALIDADE:", validade)
-    print("VALOR_UNITARIO:", valor_unitario)
 
     insert(
         "itens_entrada",

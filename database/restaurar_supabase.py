@@ -63,11 +63,9 @@ def restaurar_backup(caminho):
 
         backup = json.load(arquivo)
 
-    print("JSON CARREGADO")
 
     limpar_tabelas()
 
-    print("BANCO LIMPO")
 
     mapa_usuarios = {}
     mapa_fornecedores = {}
@@ -80,7 +78,6 @@ def restaurar_backup(caminho):
     # USUÁRIOS
     # ==========================
 
-    print("RESTAURANDO USUARIOS")
 
     for registro in backup.get("usuarios", []):
 
@@ -97,7 +94,6 @@ def restaurar_backup(caminho):
     # FORNECEDORES
     # ==========================
 
-    print("RESTAURANDO FORNECEDORES")
 
     for registro in backup.get("fornecedores", []):
 
@@ -114,7 +110,6 @@ def restaurar_backup(caminho):
     # SETORES
     # ==========================
 
-    print("RESTAURANDO SETORES")
 
     for registro in backup.get("setores", []):
 
@@ -131,7 +126,6 @@ def restaurar_backup(caminho):
     # PRODUTOS
     # ==========================
 
-    print("RESTAURANDO PRODUTOS")
 
     for registro in backup.get("produtos", []):
 
@@ -148,7 +142,6 @@ def restaurar_backup(caminho):
     # LOTES
     # ==========================
 
-    print("RESTAURANDO LOTES")
 
     for registro in backup.get("lotes", []):
 
@@ -165,7 +158,6 @@ def restaurar_backup(caminho):
     # ENTRADAS
     # ==========================
 
-    print("RESTAURANDO ENTRADAS")
 
     for registro in backup.get("entradas", []):
 
@@ -182,7 +174,6 @@ def restaurar_backup(caminho):
     # ITENS DE ENTRADA
     # ==========================
 
-    print("RESTAURANDO ITENS_ENTRADA")
 
     for registro in backup.get("itens_entrada", []):
 
@@ -203,7 +194,6 @@ def restaurar_backup(caminho):
     # SAÍDAS
     # ==========================
 
-    print("RESTAURANDO SAIDAS")
 
     for registro in backup.get("saidas", []):
 
@@ -220,7 +210,6 @@ def restaurar_backup(caminho):
     # ITENS DE SAÍDA
     # ==========================
 
-    print("RESTAURANDO ITENS_SAIDA")
 
     for registro in backup.get("itens_saida", []):
 
@@ -241,7 +230,6 @@ def restaurar_backup(caminho):
     # AJUSTES DE ESTOQUE
     # ==========================
 
-    print("RESTAURANDO AJUSTES")
 
     for registro in backup.get("ajustes_estoque", []):
 
@@ -255,6 +243,5 @@ def restaurar_backup(caminho):
 
         inserir("ajustes_estoque", dados)
 
-    print("RESTAURAÇÃO FINALIZADA")    
 
     return True 

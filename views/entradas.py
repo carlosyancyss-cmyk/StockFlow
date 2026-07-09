@@ -1,6 +1,9 @@
 import flet as ft
 
-from utils.export_manager import novo_pdf, abrir_arquivo
+from utils.export_manager import (
+    novo_pdf,
+    abrir_pdf
+)
 from database.fornecedores_supabase import (
     cadastrar_fornecedor,
     listar_fornecedores
@@ -759,7 +762,7 @@ def entradas_view(page, usuario):
 
         doc.build(elementos)
 
-        abrir_arquivo(page, arquivo_pdf)
+        abrir_pdf(page, arquivo_pdf)
 
         page.snack_bar = ft.SnackBar(
             content=ft.Text(f"PDF gerado: {arquivo_pdf}")
