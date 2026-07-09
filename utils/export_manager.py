@@ -27,9 +27,12 @@ def url_download(arquivo):
 import flet as ft
 
 
+import asyncio
+
+
 def abrir_pdf(page, arquivo):
-    page.launch_url(url_download(arquivo))
+    asyncio.create_task(page.launch_url(url_download(arquivo)))
 
 
 def abrir_excel(page, arquivo):
-    page.launch_url(url_download(arquivo))
+    asyncio.create_task(page.launch_url(url_download(arquivo)))
