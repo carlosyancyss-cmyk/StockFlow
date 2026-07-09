@@ -2,6 +2,8 @@ import flet as ft
 import tempfile
 
 
+from fastapi.responses import FileResponse
+from fastapi import HTTPException
 from pathlib import Path
 from database.usuarios_supabase import cadastrar_usuario
 from database.backup_supabase import fazer_backup_automatico
@@ -759,6 +761,22 @@ def main(page: ft.Page):
 
 app = ft.run(
     main,
-    export_asgi_app=True,
     assets_dir="assets",
+    export_asgi_app=True,
 )
+
+TEMP_DIR = Path(tempfile.gettempdir())
+
+
+@app.get("/download/{arquivo}")
+async def download_arquivo(arquivo: str):
+
+    caminho = TEMP_DIR / arquivo
+
+    if not caminho.exists():
+        raise HTTPException(status_code=404, detail="Arquivo não encontrado")
+
+    return FileResponse(
+        path=caminho,
+        filename=arquivo,
+    )

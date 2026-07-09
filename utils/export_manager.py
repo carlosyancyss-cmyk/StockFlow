@@ -14,8 +14,14 @@ def novo_excel(nome):
     return Path(tempfile.gettempdir()) / f"{nome}_{agora}.xlsx"
 
 
+import os
+
+
 def url_download(arquivo):
-    return f"/download/{Path(arquivo).name}"
+
+    base = os.getenv("APP_URL", "")
+
+    return f"{base}/download/{Path(arquivo).name}"
 
 
 def abrir_pdf(page, arquivo):
