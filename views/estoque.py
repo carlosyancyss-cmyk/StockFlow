@@ -1079,7 +1079,7 @@ def estoque_view(page, usuario):
 
         wb.save(arquivo)
 
-        abrir_excel(page, arquivo)
+        page.launch_url(url_download(arquivo))
         
         e.page.show_dialog(
             ft.AlertDialog(
@@ -1479,7 +1479,7 @@ def estoque_view(page, usuario):
 
             doc.build(elementos)
 
-            abrir_pdf(page, arquivo)
+            page.launch_url(url_download(arquivo))
 
             page.snack_bar = ft.SnackBar(
                 content=ft.Text(

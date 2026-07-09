@@ -1,8 +1,6 @@
-import asyncio
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 import tempfile
-import os
 
 
 def novo_pdf(nome):
@@ -16,13 +14,4 @@ def novo_excel(nome):
 
 
 def url_download(arquivo):
-    base = os.getenv("APP_URL", "")
-    return f"{base}/download/{Path(arquivo).name}"
-
-
-def abrir_pdf(page, arquivo):
-    asyncio.create_task(page.launch_url(url_download(arquivo)))
-
-
-def abrir_excel(page, arquivo):
-    asyncio.create_task(page.launch_url(url_download(arquivo)))
+    return f"/download/{Path(arquivo).name}"
