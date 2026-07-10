@@ -45,9 +45,7 @@ def fazer_backup():
 
     nome = "Backup_StockFlow.json"
 
-    BACKUPS_DIR.mkdir(parents=True, exist_ok=True)
-
-    caminho = BACKUPS_DIR / nome
+    caminho = Path(tempfile.gettempdir()) / nome
 
     if caminho.exists():
         caminho.unlink()
