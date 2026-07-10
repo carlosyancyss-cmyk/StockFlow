@@ -7,8 +7,7 @@ from pathlib import Path
 from utils.export_manager import (
     novo_pdf,
     novo_excel,
-    abrir_pdf,
-    abrir_excel
+    url_download
 )
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image as ExcelImage
@@ -910,7 +909,8 @@ def relatorios_view(page, usuario):
 
         wb.save(arquivo)
 
-        page.launch_url(url_download(arquivo))
+        arquivo_excel = novo_excel(...)
+        page.launch_url(url_download(arquivo_excel))
 
         mensagem.value = f"Excel gerado: {arquivo}"
 
@@ -1062,7 +1062,8 @@ def relatorios_view(page, usuario):
 
         print("PDF GERADO")
 
-        page.launch_url(url_download(arquivo))
+        arquivo_pdf = novo_pdf(...)
+        page.launch_url(url_download(arquivo_pdf))
 
         mensagem.value = "PDF gerado com sucesso."
 

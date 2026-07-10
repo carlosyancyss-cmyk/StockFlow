@@ -763,11 +763,12 @@ def entradas_view(page, usuario):
 
         doc.build(elementos)
 
-        page.launch_url(url_download(arquivo))
+        page.launch_url(url_download(arquivo_pdf))
 
         page.snack_bar = ft.SnackBar(
             content=ft.Text(f"PDF gerado: {arquivo_pdf}")
         )
+        
         page.snack_bar.open = True
         page.update()  
 
