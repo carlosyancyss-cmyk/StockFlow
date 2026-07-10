@@ -3,7 +3,7 @@ import flet as ft
 from pathlib import Path
 from shutil import copy2
 
-
+from utils.export_manager import url_download
 from app_paths import DB_FILE, BACKUPS_DIR
 from database.backup_supabase import (
     fazer_backup as fazer_backup_supabase,
@@ -396,6 +396,8 @@ def configuracoes_view(page, usuario, logout_callback=None):
         try:
 
             arquivo = fazer_backup_supabase()
+
+            page.launch_url(url_download(arquivo))
 
             page.snack_bar = ft.SnackBar(
                 content=ft.Text(
