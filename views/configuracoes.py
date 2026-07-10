@@ -391,13 +391,13 @@ def configuracoes_view(page, usuario, logout_callback=None):
     # BACKUP
     # =====================================
 
-    def fazer_backup(e):
+    async def fazer_backup(e):
 
         try:
 
             arquivo = fazer_backup_supabase()
 
-            page.launch_url(url_download(arquivo))
+            await page.launch_url(url_download(arquivo))
 
             page.snack_bar = ft.SnackBar(
                 content=ft.Text(
