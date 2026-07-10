@@ -5,8 +5,9 @@ from pathlib import Path
 
 from utils.export_manager import (
     novo_pdf,
-    abrir_pdf
+    url_download
 )
+
 from app_paths import LOGO_PATHS
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
