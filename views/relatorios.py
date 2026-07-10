@@ -909,8 +909,7 @@ def relatorios_view(page, usuario):
 
         wb.save(arquivo)
 
-        arquivo_excel = novo_excel(...)
-        page.launch_url(url_download(arquivo_excel))
+        page.launch_url(url_download(arquivo))
 
         mensagem.value = f"Excel gerado: {arquivo}"
 
@@ -1062,8 +1061,13 @@ def relatorios_view(page, usuario):
 
         print("PDF GERADO")
 
-        arquivo_pdf = novo_pdf(...)
-        page.launch_url(url_download(arquivo_pdf))
+        import inspect
+
+        ret = page.launch_url(url_download(arquivo_pdf))
+
+        print("RETORNO =", ret)
+        print("TIPO =", type(ret))
+        print("IS_AWAITABLE =", inspect.isawaitable(ret))
 
         mensagem.value = "PDF gerado com sucesso."
 
