@@ -1,4 +1,3 @@
-from contextlib import asynccontextmanager
 
 import flet.fastapi as flet_fastapi
 from fastapi.responses import FileResponse
@@ -7,17 +6,8 @@ import tempfile
 
 from main import main
 
+app = flet_fastapi.FastAPI()
 
-@asynccontextmanager
-async def lifespan(app):
-    await flet_fastapi.app_manager.start()
-    yield
-    await flet_fastapi.app_manager.shutdown()
-
-
-app = flet_fastapi.FastAPI(
-    lifespan=lifespan
-)
 
 TEMP_DIR = Path(tempfile.gettempdir())
 
