@@ -6,6 +6,8 @@ import tempfile
 
 from main import main
 
+BASE_DIR = Path(__file__).resolve().parent
+
 app = flet_fastapi.FastAPI()
 
 
@@ -45,6 +47,6 @@ app.mount(
     "/",
     flet_fastapi.app(
         main,
-        assets_dir="assets"
+        assets_dir=str(BASE_DIR / "assets")
     ),
 )
