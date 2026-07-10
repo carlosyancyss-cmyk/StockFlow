@@ -842,7 +842,7 @@ def relatorios_view(page, usuario):
                 get_column_letter(col_idx)
             ].width = 20
 
-    def exportar_excel(e):
+    async def exportar_excel(e):
 
         if not validar_relatorio():
             e.page.update()
@@ -909,13 +909,13 @@ def relatorios_view(page, usuario):
 
         wb.save(arquivo)
 
-        page.launch_url(url_download(arquivo))
+        await page.launch_url(url_download(arquivo))
 
         mensagem.value = f"Excel gerado: {arquivo}"
 
         e.page.update()
 
-    def exportar_pdf(e):
+    async def exportar_pdf(e):
 
         print("ENTROU EM exportar_pdf")
 
@@ -1061,13 +1061,7 @@ def relatorios_view(page, usuario):
 
         print("PDF GERADO")
 
-        import inspect
-
-        ret = page.launch_url(url_download(arquivo))
-
-        print("RETORNO =", ret)
-        print("TIPO =", type(ret))
-        print("IS_AWAITABLE =", inspect.isawaitable(ret))
+        await page.launch_url(url_download(arquivo))
 
         mensagem.value = "PDF gerado com sucesso."
 
