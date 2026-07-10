@@ -25,9 +25,11 @@ TEMP_DIR = Path(tempfile.gettempdir())
 @app.get("/download/{arquivo}")
 async def download(arquivo: str):
 
-    print(f"DOWNLOAD: {arquivo}")
-
     caminho = TEMP_DIR / arquivo
+
+    print("DOWNLOAD SOLICITADO:")
+    print(caminho)
+    print("EXISTE?", caminho.exists())
 
     if not caminho.exists():
         return {"erro": "Arquivo não encontrado"}

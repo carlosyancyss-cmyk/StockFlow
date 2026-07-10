@@ -1059,7 +1059,9 @@ def relatorios_view(page, usuario):
 
         doc.build(elementos)
 
-        print("PDF GERADO")
+        print("PDF SALVO EM:")
+        print(arquivo)
+        print("EXISTE APÓS GERAR?", Path(arquivo).exists())
 
         await page.launch_url(url_download(arquivo))
 
