@@ -2,7 +2,8 @@ import flet as ft
 
 from utils.export_manager import (
     novo_pdf,
-    abrir_pdf
+    novo_excel,
+    url_download
 )
 from database.fornecedores_supabase import (
     cadastrar_fornecedor,
@@ -762,7 +763,7 @@ def entradas_view(page, usuario):
 
         doc.build(elementos)
 
-        abrir_pdf(page, arquivo_pdf)
+        page.launch_url(url_download(arquivo))
 
         page.snack_bar = ft.SnackBar(
             content=ft.Text(f"PDF gerado: {arquivo_pdf}")

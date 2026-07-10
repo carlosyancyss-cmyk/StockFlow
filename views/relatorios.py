@@ -910,7 +910,7 @@ def relatorios_view(page, usuario):
 
         wb.save(arquivo)
 
-        abrir_excel(page, arquivo)
+        page.launch_url(url_download(arquivo))
 
         mensagem.value = f"Excel gerado: {arquivo}"
 
@@ -1062,7 +1062,7 @@ def relatorios_view(page, usuario):
 
         print("PDF GERADO")
 
-        await abrir_pdf(page, arquivo)
+        page.launch_url(url_download(arquivo))
 
         mensagem.value = "PDF gerado com sucesso."
 
