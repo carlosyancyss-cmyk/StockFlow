@@ -8,6 +8,10 @@ from main import main
 
 BASE_DIR = Path(__file__).resolve().parent
 
+print("BASE_DIR =", BASE_DIR)
+print("ASSETS_DIR =", BASE_DIR / "assets")
+print("LOGO EXISTE?", (BASE_DIR / "assets" / "logo.png").exists())
+
 app = flet_fastapi.FastAPI()
 
 
