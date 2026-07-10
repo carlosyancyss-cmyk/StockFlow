@@ -669,7 +669,7 @@ def main(page: ft.Page):
                                     [
 
                                     ft.Image(
-                                        src="assets/logo.png",
+                                        src="/assets/logo.png",
                                         width=largura_logo,
                                         height=160
                                     ),
