@@ -5,8 +5,7 @@ from openpyxl import Workbook
 from utils.export_manager import (
     novo_pdf,
     novo_excel,
-    abrir_pdf,
-    abrir_excel
+    url_download
 )
 
 from database.estoque_supabase import (
