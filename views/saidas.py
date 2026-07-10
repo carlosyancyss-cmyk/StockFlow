@@ -594,7 +594,7 @@ def saidas_view(page, usuario):
         return "Usuário"
 
 
-    def gerar_pdf_consulta_saida(e):
+    async def gerar_pdf_consulta_saida(e):
 
         saida = consultar_saida(
             codigo_consulta.value
@@ -759,7 +759,7 @@ def saidas_view(page, usuario):
 
         doc.build(elementos)
 
-        page.launch_url(url_download(arquivo_pdf))
+        await page.launch_url(url_download(arquivo_pdf))
 
         page.snack_bar = ft.SnackBar(
             content=ft.Text(f"PDF gerado: {arquivo_pdf}")

@@ -2,7 +2,7 @@ from pathlib import Path
 import flet as ft
 
 
-def salvar_arquivo(page: ft.Page, arquivo: str | Path):
+async def salvar_arquivo(page: ft.Page, arquivo: str | Path):
 
     print(">>> ENTROU EM salvar_arquivo")
 
@@ -28,8 +28,8 @@ def salvar_arquivo(page: ft.Page, arquivo: str | Path):
         page.update()
         return
 
-    # Android
-    page.launch_url(str(arquivo))
+    # Android/Web
+    await page.launch_url(str(arquivo))
 
     page.snack_bar = ft.SnackBar(
         content=ft.Text("Abrindo arquivo...")

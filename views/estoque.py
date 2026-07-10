@@ -935,7 +935,7 @@ def estoque_view(page, usuario):
 
             ].width = 22    
 
-    def exportar_excel(e):
+    async def exportar_excel(e):
 
 
         arquivo = novo_excel("Estoque")
@@ -1078,7 +1078,7 @@ def estoque_view(page, usuario):
 
         wb.save(arquivo)
 
-        page.launch_url(url_download(arquivo))
+        await page.launch_url(url_download(arquivo))
         
         e.page.show_dialog(
             ft.AlertDialog(
@@ -1098,7 +1098,7 @@ def estoque_view(page, usuario):
 
         e.page.update()
 
-    def gerar_pdf(e):
+    async def gerar_pdf(e):
 
 
         arquivo = novo_pdf("Estoque")
@@ -1478,7 +1478,7 @@ def estoque_view(page, usuario):
 
             doc.build(elementos)
 
-            page.launch_url(url_download(arquivo))
+            await page.launch_url(url_download(arquivo))
 
             page.snack_bar = ft.SnackBar(
                 content=ft.Text(
