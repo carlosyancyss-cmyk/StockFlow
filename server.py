@@ -46,6 +46,14 @@ async def download(arquivo: str):
         media_type="application/octet-stream",
     )
 
+from fastapi.staticfiles import StaticFiles
+
+app.mount(
+    "/assets",
+    StaticFiles(directory=BASE_DIR / "assets"),
+    name="assets",
+)
+
 
 app.mount(
     "/",
