@@ -1063,7 +1063,7 @@ def relatorios_view(page, usuario):
 
         import inspect
 
-        ret = page.launch_url(url_download(arquivo_pdf))
+        ret = page.launch_url(url_download(arquivo))
 
         print("RETORNO =", ret)
         print("TIPO =", type(ret))
