@@ -1,6 +1,11 @@
 import flet as ft
 import tempfile
 
+import flet
+import inspect
+
+print("VERSÃO DO FLET:", flet.__version__)
+print("launch_url async:", inspect.iscoroutinefunction(flet.Page.launch_url))
 
 from fastapi.responses import FileResponse
 from fastapi import HTTPException
